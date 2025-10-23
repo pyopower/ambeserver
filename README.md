@@ -2,6 +2,14 @@
 
 Este proyecto te permite ejecutar el emulador `md380-emu` de una manera muy sencilla, utilizando Docker. Esto significa que no tienes que preocuparte por instalar dependencias o compilar programas manualmente en tu servidor. Todo está empaquetado y listo para usar.
 
+### Compatibilidad Multi-Arquitectura
+
+Esta configuración de Docker está diseñada para funcionar en las arquitecturas de procesador más comunes:
+- **x86_64** (Intel/AMD, la más habitual en servidores y ordenadores de sobremesa)
+- **aarch64** (ARM de 64 bits, común en Raspberry Pi 4, servidores Oracle Cloud, AWS Graviton, etc.)
+
+No necesitas hacer nada especial; el `Dockerfile` se encargará de compilar la versión correcta para que funcione en tu sistema.
+
 ## ¿Qué necesitas antes de empezar?
 
 Solo necesitas tener instaladas dos herramientas en tu sistema. Si no las tienes, no te preocupes, aquí tienes las guías oficiales para instalarlas:

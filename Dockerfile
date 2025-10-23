@@ -54,10 +54,12 @@ RUN cd /tmp && \
     # Limpiar los archivos descargados y extraídos
     rm -rf /tmp/*
 
-# Clonar el repositorio md380tools, compilar el emulador y limpiar
+# Clonar el repositorio md380tools y compilar el emulador para ARM.
+# Se especifica CC=arm-linux-gnueabihf-gcc para forzar la compilación cruzada.
+# Esto garantiza que el binario sea siempre para ARM, independientemente de la arquitectura del host.
 RUN git clone https://gitlab.com/hp3icc/md380tools.git "$EMU_DIR" && \
     cd "$EMU_DIR/emulator" && \
-    make
+    make CC=arm-linux-gnueabihf-gcc
 
 # Puerto y conexiones por defecto. Se pueden anular en docker-compose.yml
 ENV EMU_PORT 2460
@@ -70,5 +72,5 @@ WORKDIR ${EMU_DIR}/emulator
 EXPOSE ${EMU_PORT}
 
 # El comando para ejecutar el emulador.
-# Utiliza variables de entorno para el puerto y las conexiones, permitiendo una configuración fácil.
-CMD ["/usr/bin/qemu-arm", "./md380-emu", "-d", "-e", "-s", "${EMU_PORT}", "-m", "${EMU_MAX_CONNECTIONS}"]
+# Se utiliza el formato "shell" para permitir la sustitución de variables de entorno.
+CMD /usr/bin/qemu-arm ./md380-emu -d -e -s ${EMU_PORT} -m ${EMU_MAX_CONNECTIONS}
