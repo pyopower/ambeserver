@@ -12,43 +12,43 @@ No necesitas hacer nada especial; el `Dockerfile` se encargará de compilar la v
 
 ## ¿Qué necesitas antes de empezar?
 
-Solo necesitas tener instaladas dos herramientas en tu sistema. Si no las tienes, no te preocupes, aquí tienes las guías oficiales para instalarlas:
+Solo necesitas tener instaladas tres herramientas en tu sistema. Si no las tienes, no te preocupes, aquí tienes las guías oficiales para instalarlas:
 
-1.  **Docker:** Es la plataforma que nos permite ejecutar aplicaciones en contenedores aislados.
+1.  **Git:** Para descargar el código de este repositorio.
+    *   [Guía oficial para instalar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2.  **Docker:** La plataforma que ejecuta el servidor en un contenedor.
     *   [Guía oficial para instalar Docker](https://docs.docker.com/engine/install/)
-
-2.  **Docker Compose:** Es una herramienta que simplifica la gestión de aplicaciones Docker, como la nuestra.
+3.  **Docker Compose:** Una herramienta que simplifica el manejo de Docker.
     *   [Guía oficial para instalar Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Cómo poner en marcha el servidor (paso a paso)
 
 Sigue estos sencillos pasos para tener tu servidor funcionando en pocos minutos.
 
-### Paso 1: Crea el archivo de configuración
+### Paso 1: Descarga el código
 
-Dentro del mismo directorio donde tienes los archivos de este proyecto (`Dockerfile`, `docker-compose.yml`, etc.), necesitas crear un archivo nuevo.
-
-1.  Crea un archivo de texto vacío.
-2.  Nómbralo **`.env`** (es muy importante que el nombre empiece con un punto).
-
-Dentro de este archivo `.env`, pega el siguiente contenido:
-
+Abre una terminal y ejecuta el siguiente comando para descargar (clonar) este repositorio en tu máquina:
+```bash
+git clone https://github.com/tu-usuario/ambeserver.git
 ```
-# --- Configuración del Servidor Emulador ---
-
-# El puerto que usará el emulador para aceptar conexiones.
-# Puedes cambiarlo si el puerto 2460 ya está en uso en tu sistema.
-EMU_PORT=2460
-
-# El número máximo de conexiones simultáneas que permites.
-EMU_MAX_CONNECTIONS=5
+Luego, entra en el directorio que se acaba de crear:
+```bash
+cd ambeserver
 ```
 
-Puedes modificar los valores de `EMU_PORT` y `EMU_MAX_CONNECTIONS` según tus necesidades.
+### Paso 2: Configura tu servidor
 
-### Paso 2: ¡Arranca el servidor!
+El repositorio incluye un archivo de configuración de ejemplo llamado `.env.example`. Solo tienes que hacer una copia de él.
 
-Abre una terminal o línea de comandos en el directorio del proyecto y ejecuta el siguiente comando:
+Ejecuta el siguiente comando en la terminal:
+```bash
+cp .env.example .env
+```
+Esto crea tu archivo de configuración personal `.env` con los valores por defecto. Si quieres, puedes editar este archivo para cambiar el puerto o el número de conexiones.
+
+### Paso 3: ¡Arranca el servidor!
+
+Ahora que ya estás en el directorio del proyecto y tienes tu archivo `.env` creado, solo tienes que ejecutar este comando:
 
 ```bash
 docker-compose up -d --build
