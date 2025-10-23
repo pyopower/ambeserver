@@ -29,7 +29,7 @@ Sigue estos sencillos pasos para tener tu servidor funcionando en pocos minutos.
 
 Abre una terminal y ejecuta el siguiente comando para descargar (clonar) este repositorio en tu máquina:
 ```bash
-git clone https://github.com/tu-usuario/ambeserver.git
+git clone https://github.com/pyopower/ambeserver.git
 ```
 Luego, entra en el directorio que se acaba de crear:
 ```bash
