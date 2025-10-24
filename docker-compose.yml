@@ -1,0 +1,30 @@
+version: '3.8'
+
+# Archivo docker-compose para ambeserver
+
+services:
+  ambeserver:
+    # Construye la imagen de Docker desde el Dockerfile en el directorio actual
+    build: .
+    # Asigna un nombre al contenedor para identificarlo fácilmente
+    container_name: ambeserver
+    # Reinicia el contenedor automáticamente si se detiene, a menos que se detenga manualmente
+    restart: unless-stopped
+    # Mapea el puerto del contenedor al puerto del host.
+    # El puerto del host (el primer valor) puede ser cambiado según sea necesario.
+    ports:
+      - "${EMU_PORT}:${EMU_PORT}"
+    # Define las variables de entorno que se pasarán al contenedor.
+    # Estos valores anulan los predeterminados establecidos en el Dockerfile.
+    environment:
+      - EMU_PORT=${EMU_PORT}
+      - EMU_MAX_CONNECTIONS=${EMU_MAX_CONNECTIONS}
+
+# Para ejecutar este archivo, usa el comando:
+# docker-compose up -d
+
+# Para detener el servicio:
+# docker-compose down
+
+# Para ver los registros:
+# docker-compose logs -f
