@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  dmrbeacon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dmrbeacon
+    restart: unless-stopped
+    ports:
+      - "54005:54005"
+    volumes:
+      - ./hblink.cfg:/usr/local/etc/hblink.cfg
+      - ./audio:/usr/local/share/dmrbeacon/audio
+    working_dir: /usr/local/share/dmrbeacon/audio
+    command: ["/usr/local/bin/dmrbeacon", "/usr/local/etc/hblink.cfg"]
