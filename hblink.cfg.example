@@ -1,0 +1,36 @@
+[DMRBEACON]
+# Dirección IP del servidor HBlink
+# Por ejemplo: 127.0.0.1
+IP = 127.0.0.1
+
+# Puerto del servidor HBlink
+# El valor predeterminado suele ser 54005
+PORT = 54005
+
+# Indicativo de llamada del beacon
+# Por ejemplo: N0CALL
+CALLSIGN = N0CALL
+
+# ID de DMR del beacon
+# Por ejemplo: 12345
+ID = 12345
+
+# Frecuencia de transmisión en segundos
+# Por ejemplo: 600 para 10 minutos
+FREQUENCY = 600
+
+# Tono de la baliza (Hz)
+# Por ejemplo: 1000
+TONE = 1000
+
+# Duración del tono en milisegundos
+# Por ejemplo: 500
+TONE_DURATION = 500
+
+# Nivel de audio (%)
+# Por ejemplo: 50
+AUDIO_LEVEL = 50
+
+# Descripción que se enviará en la baliza
+# Por ejemplo: HBlink Server Beacon
+DESCRIPTION = HBlink Server Beacon

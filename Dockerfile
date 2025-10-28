@@ -43,6 +43,5 @@ RUN apt remove -y build-essential git cmake libtool && \
 EXPOSE 54005
 
 # Define un punto de entrada para que el contenedor ejecute el binario
-# El comando de ejecución completo (con todos los parámetros) se definirá en Docker Co
-mpose
+# El comando de ejecución completo (con todos los parámetros) se definirá en Docker Compose
 ENTRYPOINT ["/usr/local/bin/dmrbeacon"]
