@@ -11,4 +11,6 @@ services:
       - "54005:54005"
     volumes:
       - ./hblink.cfg:/usr/local/etc/hblink.cfg
+      - ./audio:/usr/local/share/dmrbeacon/audio
+    working_dir: /usr/local/share/dmrbeacon/audio
     command: ["/usr/local/bin/dmrbeacon", "/usr/local/etc/hblink.cfg"]

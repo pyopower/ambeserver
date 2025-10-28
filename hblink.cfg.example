@@ -34,3 +34,13 @@ AUDIO_LEVEL = 50
 # Descripción que se enviará en la baliza
 # Por ejemplo: HBlink Server Beacon
 DESCRIPTION = HBlink Server Beacon
+
+[AUDIO]
+# Habilita la baliza de audio (1 para sí, 0 para no)
+# Si está habilitado, esto anulará la baliza de tono.
+ENABLE = 0
+
+# Nombre del archivo de audio a transmitir.
+# El archivo debe estar en formato WAV, 8000 Hz, 16 bits, mono.
+# Coloca este archivo en el directorio 'audio' local.
+FILENAME = beacon.wav
